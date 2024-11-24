@@ -1,0 +1,33 @@
+Aim:- LL (1) parsing.
+
+Theory:
+
+LLl) parsing is a top-down parsing technique used for parsing context-free grammars. It stands for "Left-to-Right, Leftmost derivation with i symbol of lookahead." In an LL(1) parser, it processes the input from left to right and constructs a parse tree using a predictive parsing table.
+The key features of LL(1) parsing are:
+Deterministic: The parser makes a deterministic choice at each step based on the current non-terminal and the next input symbol. There is no backtracking involved.
+Predictive Parsing Table: The LL(1) parser uses a parsing table that maps the current non-terminal and the next input symbol to the production to apply. This table is often generated from the given context-free grammar and is essential for LL(1) parsing.
+Rules and Properties of LL(1) Parsing:
+1. LL(1) Grammar: The context-free grammar must be LLl), meaning it should be unambiguous and meet specific criteria:
+• No left recursion.
+• No common prefixes in the first set of any two productions for the same non-terminal.
+2. Top-Down Parsing: LL(1) parsing is a top-down parsing approach, which means it starts from the start symbol and proceeds by replacing non-terminals with their corresponding productions.
+3. Predictive Parsing Table: The LL(1) parser uses a parsing table that contains entries for each combination of a non-terminal and the next input symbol. Each table entry specifies which production to apply.
+
+Algorithm for LL(1) Parsing Program:
+
+To construct an LL (1) parser for a given context-free grammar, follow these steps:
+1. Grammar Input: Input the context-free grammar,
+including the set of non-terminals,
+terminals, production rules, and start symbol.
+2. Compute FIRST and FOLLOW Sets:
+• Calculate the FIRST sets for each non-terminal and terminal symbol. These sets represent the possible first symbols that can appear in derivations.
+• ⁠Compute the FOLLOW sets for each non-terminal. These sets represent the symbols that can immediately follow a non-terminal.
+3. Construct the Parsing Table:
+• Create an LL(1) parsing table, which is a two-dimensional table indexed by non-terminals (rows) and terminals (columns).
+• For each entry in the parsing table, determine the production to apply based on the non-terminal and the terminal symbol.
+4. Parsing Algorithm:
+• Initialize a stack to hold symbols during parsing, starting with the start symbol and $ (end marker).
+• Read the input string from left to right.
+• For each input symbol, look up the corresponding entry in the parsing table.
+• Pop the stack symbol (non-terminal) and replace it with the production specified in the parsing table.
+• Continue this process until the stack is empty, indicating successful parsing.
