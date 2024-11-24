@@ -1,0 +1,28 @@
+Aim: Implement Deterministic Finite Automata
+
+Theory:
+
+A Deterministic Finite Automaton (DFA) is a mathematical model used in automata theory and formal language theory. It is a finite-state machine that recognizes or accepts a set of strings (language) based on a set of states and transitions between those states. A DFA is deterministic, meaning that given a specific input symbol, it always transitions to a unique state. The primary components of a DFA are:
+1. Alphabet (L): A finite set of input symbols.
+2. States (Q): A finite set of states, including a start state and one or more accepting (final) states.
+3. Transition Function (8): A function that specifies the next state for each state-input symbol pair. It maps Q x E to Q
+4. Start State (qo): The initial state where the DFA begins processing input strings.
+5. Accepting States (F): A set of states from Q that are designated as accepting states. If the DFA reaches an accepting state after processing an input string, the string is considered to be in the language recognized by the DFA.
+Rules and Properties of DFAs:
+1. Determinism: In a DFA, for each state and input symbol, there is exactly one transition to a unique next state. There are no ambiguities.
+2. Finite: DFAs have a finite number of states, input symbols, and transitions.
+3. Acceptance: A string is accepted by a DFA if, after processing the entire string, the DFA is in an accepting state.
+4. Rejection: If the DFA cannot transition to an accepting state after processing the entire string, the string is rejected.
+5. Deterministic Language: A language is considered deterministic if it can be recognized by a deterministic finite automaton.
+6. Regular Language: DFAs are capable of recognizing and accepting regular languages.
+
+Algorithm for DFA Operation:
+
+Initialization: Initialize the DA with its set of states (Q), alphabet (2), transition function (ô),
+start state (qo), and accepting states (F).
+2. Start Processing: Begin processing an input string from the start state (qo).
+3. Process Input: For each symbol in the input string, consult the transition function (б) to determine the next state. If the transition is nt stefined for a state-symbol pair, the string is
+rejected.
+4. String Acceptance: After processing the entire input string, check if the DFA is in an accepting state. If it is, the input string is accepted. Otherwise, it is rejected.
+5. Repeat: If there are more strings to process, return to the start state and continue processing.
+6. Result: Return whether each input string is accepted or rejected by the DFA.
