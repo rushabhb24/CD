@@ -1,0 +1,22 @@
+Aim:- ValidatingOperator
+
+Theory :- 
+
+A lexical analyzer, often referred to as a lexer or scanner, is a fundamental component of a compiler that breaks down the source code into a sequence of tokens. Tokens are the smallest units in a programming language, such as keywords, identifiers, literals, and operators. In this case, we want to simulate a lexical analyzer specifically for validating operators in a C program.
+The program will identify and classify operators, ensuring they conform to the syntax rules of the C programming language.
+Here's a general overview of how lexical analysis for validating operators works:
+Character Stream Input: The lexical analyzer reads the source code as a character stream. It processes the input character by character, removing any extraneous whitespace, comments, or other non-essential elements.
+Tokenization: As the lexical analyzer processes the input, it identifies and groups characters into tokens. Tokens can be categorized into different types, including operators.
+Operator Recognition: When the lexical analyzer encounters a sequence of characters that may represent an operator, it checks whether the characters conform to the rules of the programming language.
+Validating Operator Syntax: To validate the syntax of operators, the lexical analyzer checks for the correct combination and ordering of characters. It ensures that the operators are used according to the language's specification. For example, in C, the + operator must be followed
+by an operand, and the = operator is a valid comparison operator.
+Error Handling: If the lexical analyzer encounters an invalid operator or syntax error, it generates an error message, indicating the location of the error in the source code. Error messages can help programmers correct their code.
+Token Output: Valid tokens, including operators, are recorded or output for further processing by the parser and other components of the compiler or interpreter.
+Symbol Table Generation: In some cases, lexical analyzers generate a symbol table that records information about operators, such as their type and location in the source code. This symbol table can be used by subsequent phases of compilation or interpretation.
+
+Algorithm:
+1. Initialize an input string.
+2. Create a loop to read and process the input character by character.
+3. Inside the loop, identify operators by checking for sequences of characters that form valid operators.
+4. Check if the input sequence matches a valid operator and validate its syntax.
+5. Print whether each recognized sequence is a valid operator or not.
