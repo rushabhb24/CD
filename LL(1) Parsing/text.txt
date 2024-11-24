@@ -1,4 +1,0 @@
-X->TnS|Rm 
-T->q|^ 
-S->p|^ 
-R->om|ST
