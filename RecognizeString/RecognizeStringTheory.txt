@@ -1,0 +1,13 @@
+Theory
+
+Regular Expressions: Regular expressions (regex) are a powerful tool for matching patterns in text. In this program, you'll be using a simplified form of regular expressions to match patterns like 'a*
+', 'a*b+', and 'abb.'
+String Matching: String matching involves comparing a given input string with a specific pattern to determine whether they match. This program focuses on matching strings based on the provided patterns.
+
+Algorithm:
+
+1. Initialize a state variable to keep track of the current pattern.
+2. Iterate through the input string character by character.
+3. Update the state based on the current character and the current state.
+4. If the state transitions reach a final state (indicating a match), consider the input string as matching the pattern.
+5. If the state transitions lead to an invalid state (indicating a mismatch), consider the input string as not matching the pattern.
