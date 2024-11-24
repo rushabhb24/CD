@@ -1,0 +1,18 @@
+Aim :- GrammerOrNot
+
+Algorithm :- 
+
+function checkStringBelongs ToCFG(string, currentNonTerminal):
+if string is empty:
+if currentNonTerminal is the start symbol:
+return accepted
+else:
+return rejected
+if currentNonTerminal is a terminal symbol:
+if currentNonTerminal = next input symbol:
+consume input symbol
+return checkStringBelongs ToCFG(remaining string, currentNonTerminal)
+if currentNonTerminal is a non-terminal symbol: for each production rule for currentNonTerminal:
+choose a production if checkStringBelongsToCFG(string, produced non-terminal):
+return accepted
+return rejected
