@@ -1,0 +1,23 @@
+Aim:- operator precedence parsing.
+
+Theory:
+
+Operator precedence grammar, also known as operator-precedence parsing, is a type of formal grammar used to define the precedence and associativity of operators in a programming language. It is often used to specify how expressions are parsed and evaluated in programming languages, particularly those that support a variety of operators with different priorities.
+In operator precedence grammars, each operator is assigned a precedence level, and the grammar rules are defined based on these precedence levels. These levels determine the order in which operators are evaluated. Operators with higher precedence are evaluated before operators with lower precedence.
+Key components of operator precedence grammars include:
+1. Terminal Symbols: These are the symbols representing the actual operators and operands in the language.
+2. Non-terminal Symbols: These are symbols used in grammar rules to specify how expressions are constructed.
+3. Precedence Levels: Each operator is associated with a precedence level, which is typically represented as an integer. Operators with higher precedence levels have higher priority.
+4. Associativity: This specifies how operators with the same precedence level are grouped.
+Operators can be left-associative (evaluated from left to right), right-associative (evaluated from right to left, or non-associative (no specific associativity).
+Grammar Rules: Operator precedence grammars include rules that define how expressions are constructed using the specified operators and precedence levels. These rules help ensure that operators are applied in the correct order.
+
+Algorithms:- 
+
+1. Identify the operators in the language 
+2. ⁠Determine Operator precedence level
+3. Define ⁠associativity
+4. ⁠Creating a precedence table
+5. ⁠define the grammar rules
+6. ⁠test the grammar 
+7. ⁠refine and adjust as needed
