@@ -1,0 +1,21 @@
+Theory:
+
+A lexical analyzer, often referred to as a lexer or tokenizer, is responsible for breaking down the input source code into tokens for further processing. In this case, you want to design a lexical analyzer for a language that should ignore redundant spaces, tabs, and newlines.
+A lexical analyzer reads the characters from the source code and converts them into tokens.
+
+Different tokens or lexemes are:
+• Keywords Identifiers
+• Operators
+• Constants
+
+Examples of Tokenization 
+
+#include <stdio.h>
+int maximum (int x, int y) {
+// This will compare 2 numbers
+if (x > y)
+return x;
+else {
+return y;
+}
+}
