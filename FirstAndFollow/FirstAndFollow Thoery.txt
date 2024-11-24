@@ -1,0 +1,20 @@
+Aim:- FirstAndFollow
+
+Algorithm:
+1. Compute the FIRST and FOLLOW sets for each non-terminal in the grammar. These sets provide information about what can be derived from each non-terminal. The FIRST set contains the first characters that can be generated from a non-terminal, while the FOLLOW set contains the characters that can follow a non-terminal.
+2. Initialize a parsing table. Create a parsing table, where the rows represent non-terminals, and the columns represent terminals (including the end-of-input marker $).
+3. Fill in the parsing table. For each production in the grammar, do the following:
+• For each terminal a in the FIRST set of the right-hand side of the production, add the production to the cell (non-terminal, a) in the parsing table.
+• If & (empty string) is in the FIRST set of the right-hand side, for each terminal b in the FOLLOW set of the left-hand side non-terminal, add the production to the cell (non-terminal, b) in the parsing table.
+4. Parsing:
+• Initialize a stack data structure.
+• Push the start symbol onto the stack.
+• Read the first character or token from the input.
+• While the stack is not empty:
+-If the top of the stack is a terminal and matches the input character/token:
+i. Pop the stack.
+ii. Read the next character/token from the input.
+• If the top of the stack is a non-terminal:
+i. Look up the parsing table to determine which production to apply based on the current non-terminal and the input character/token. ii. Push the right-hand side of the production onto the stack (in reverse
+• Ifthere dan eror (.&, the input doesn't match the grammar), repot an error and exit
+5. Acceptance: If the stack is empty and the entire input has been processed, and there are no errors, accept the input as valid according to the grammar.
