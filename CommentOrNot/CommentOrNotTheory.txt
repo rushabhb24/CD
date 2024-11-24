@@ -1,0 +1,13 @@
+Theory:
+
+First, it reads a line of input from the user, assuming a maximum line length of 255 characters.
+Next, it trims any leading and trailing whitespaces from the input line to ensure accurate detection. Then, it checks the first non-whitespace character in the line. If it's a forward slash'/, the program further examines the character immediately following it to identify if it's a single-line comment (//') or the beginning of a multi-line comment (/). If it's a single-line comment, it reports it as such. If it's the start of a multi-line comment, it reads lines until it encounters the closing ', reporting it as a multi-line comment or an error if the */ is missing. If the first non-whitespace character is not a ', the program declares that the line is not a comment. This program can help users quickly identify comments in a given code snippet
+
+Algorithm
+
+1. Read a line of input from the user.
+2. Check if the first non-whitespace character in the line is /' (forward slash).
+3. If it is, check the character immediately following the /' to determine if it is another '/ (indicating a single-line comment) or an asterisk '*' (indicating a multi-line comment).
+4. If it is a single-line comment ('/'), print a message saying it's a single-line comment.
+If it is a multi-line comment (/'), continue reading lines until you find the closing /'. If you find /', print a message saying it's a multi-line comment. If you reach the end of the input without finding /', indicate an error.
+6. If the first non-whitespace character is not /', print a message saying it's not a comment
