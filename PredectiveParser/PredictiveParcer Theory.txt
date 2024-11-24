@@ -1,0 +1,22 @@
+Aim:- Design of a Predictive parser of given language
+
+Theory:
+
+A predictive parser is a type of top-down parser that is capable of parsing a string using a context-free grammar without backtracking. It predicts which production rule to use based on the next input symbol. Here are the properties and key characteristics of predictive parsers in bullet points:
+Properties:
+• Top-Down Parsing: Predictive parsers are a top-down parsing technique, which means they start from the start symbol and try to derive the input string by applying production rules in a left-to-right manner.
+• No Backtracking: Predictive parsers do not use backtracking. They make a unique prediction for each input symbol and follow a specific path through the grammar without undoing choices.
+• LL(1) Grammar: Predictive parsers work well with LL (1) grammars. An LL(1) grammar is a context-free grammar that can be parsed by a predictive parser using one symbol of lookahead.
+• Deterministic: The parser is deterministic because for each input symbol, it makes a predictable choice of which production to apply based on the current non-terminal and the next input symbol.
+Algorithm for Predictive Parsing:
+1. Initialize a stack: Create a stack to keep track of the symbols during parsing. Initially, push the start symbol onto the stack.
+2. Read the input: Start reading the input string from left to right, and maintain a pointer to the current input symbol.
+3. Top of Stack: Look at the symbol at the top of the stack (let's call it X).
+4. Decide on the Production: Using the current non-terminal X and the current input symbol, decide which production rule to use. This decision is based on a parsing table, which is often called the LL(1) parsing table.
+5. 
+Push or Pop: Depending on the production rule chosen in step 4:
+6. If the production is X → e (empty production), pop X from the stack.
+7. If the production is X → YIY2... Yn (a sequence of symbols), pop X from the stack and push Yn, Yn-1, ..., Yl onto the stack in reverse order.
+8. Match Input: If the production chosen is a terminal symbol, match it with the current input symbol. If they match, advance the input pointer.
+9. Repeat: Repeat steps 3 to 6 until the stack is empty and the entire input string is processed.
+10. Acceptance: If the stack becomes empty, and the input pointer reaches the end of the input string, the parser accepts the input as valid. Otherwise, it rejects the input as invalid.
