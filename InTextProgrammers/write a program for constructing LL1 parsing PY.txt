@@ -1,0 +1,94 @@
+class Grammar:
+    def __init__(self, non_terminals, terminals, productions, start_symbol):
+        self.non_terminals = non_terminals
+        self.terminals = terminals
+        self.productions = productions
+        self.start_symbol = start_symbol
+        self.first = {}
+        self.follow = {}
+        self.parse_table = {}
+
+    def compute_first(self):
+        for non_terminal in self.non_terminals:
+            self.first[non_terminal] = self.first_of(non_terminal)
+
+    def first_of(self, symbol):
+        if symbol in self.terminals:
+            return {symbol}
+        if symbol in self.first:
+            return self.first[symbol]
+        first = set()
+        for production in self.productions.get(symbol, []):
+            for char in production:
+                char_first = self.first_of(char)
+                first.update(char_first - {'ε'})
+                if 'ε' not in char_first:
+                    break
+            else:
+                first.add('ε')
+        self.first[symbol] = first
+        return first
+
+    def compute_follow(self):
+        for non_terminal in self.non_terminals:
+            self.follow[non_terminal] = set()
+        self.follow[self.start_symbol].add('$')
+        while True:
+            updated = False
+            for non_terminal in self.non_terminals:
+                for production in self.productions.get(non_terminal, []):
+                    follow_temp = self.follow[non_terminal]
+                    for symbol in reversed(production):
+                        if symbol in self.non_terminals:
+                            if self.follow[symbol] != self.follow[symbol].union(follow_temp):
+                                self.follow[symbol].update(follow_temp)
+                                updated = True
+                            if 'ε' in self.first[symbol]:
+                                follow_temp = follow_temp.union(self.first[symbol] - {'ε'})
+                            else:
+                                follow_temp = self.first[symbol]
+                        else:
+                            follow_temp = self.first_of(symbol)
+            if not updated:
+                break
+
+    def construct_parse_table(self):
+        for non_terminal in self.non_terminals:
+            self.parse_table[non_terminal] = {}
+            for terminal in self.terminals:
+                self.parse_table[non_terminal][terminal] = None
+            self.parse_table[non_terminal]['$'] = None
+
+        for non_terminal in self.non_terminals:
+            for production in self.productions.get(non_terminal, []):
+                first_set = self.first_of(production[0])
+                for terminal in first_set - {'ε'}:
+                    self.parse_table[non_terminal][terminal] = production
+                if 'ε' in first_set:
+                    for terminal in self.follow[non_terminal]:
+                        self.parse_table[non_terminal][terminal] = production
+
+    def display_parse_table(self):
+        print("LL(1) Parsing Table:")
+        for non_terminal, rules in self.parse_table.items():
+            for terminal, production in rules.items():
+                if production:
+                    print(f"{non_terminal}, {terminal} -> {production}")
+
+# Example usage
+non_terminals = {'E', 'E\'', 'T', 'T\'', 'F'}
+terminals = {'+', '*', '(', ')', 'id', '$'}
+productions = {
+    'E': ['T E\''],
+    'E\'': ['+ T E\'', 'ε'],
+    'T': ['F T\''],
+    'T\'': ['* F T\'', 'ε'],
+    'F': ['( E )', 'id']
+}
+start_symbol = 'E'
+
+grammar = Grammar(non_terminals, terminals, productions, start_symbol)
+grammar.compute_first()
+grammar.compute_follow()
+grammar.construct_parse_table()
+grammar.display_parse_table()
